@@ -12,14 +12,19 @@ function calcularComision(numeroVentas, precioProducto) {
 
 function calcular() {
     // Recuperar componentes
-    let componenteSueldoBase = document.getElementById("txtSueldoBase"); 
-    let componenteVentas = document.getElementById("txtVentas");
-    let componentePrecio = document.getElementById("txtPrecio");
+    //let componenteSueldoBase = document.getElementById("txtSueldoBase"); 
+    //let componenteVentas = document.getElementById("txtVentas");
+    //let componentePrecio = document.getElementById("txtPrecio");
 
     // Recuperar valores
-    let sueldoBaseStr = componenteSueldoBase.value;
-    let numeroVentasStr = componenteVentas.value;
-    let precioProductoStr = componentePrecio.value; 
+    //ya no se utilizaron estas funciones que se estan comentado ya que se realizo otra funcion en utilitarios.
+    //let sueldoBaseStr = componenteSueldoBase.value;
+    //let numeroVentasStr = componenteVentas.value;
+    //let precioProductoStr = componentePrecio.value; 
+    let sueldoBaseStr=recuperartext("txtSueldoBase");
+    let numeroVentasStr=recuperartext("txtVentas");
+    let precioProductoStr=recuperartext("txtPrecio")
+ 
 
     // Convertir a números
     let sueldoBase = parseFloat(sueldoBaseStr);
