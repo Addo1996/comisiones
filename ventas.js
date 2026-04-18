@@ -21,15 +21,15 @@ function calcular() {
     //let sueldoBaseStr = componenteSueldoBase.value;
     //let numeroVentasStr = componenteVentas.value;
     //let precioProductoStr = componentePrecio.value; 
-    let sueldoBaseStr=recuperartext("txtSueldoBase");
-    let numeroVentasStr=recuperartext("txtVentas");
-    let precioProductoStr=recuperartext("txtPrecio")
+    //let sueldoBaseStr=recuperartext("txtSueldoBase");
+    //let numeroVentasStr=recuperartext("txtVentas");
+    //let precioProductoStr=recuperartext("txtPrecio")
  
 
     // Convertir a números
-    let sueldoBase = parseFloat(sueldoBaseStr);
-    let numeroVentas = parseFloat(numeroVentasStr); 
-    let precioProducto = parseFloat(precioProductoStr);
+    let sueldoBase = recuperarFloat("txtSueldoBase")
+    let numeroVentas = recuperarFloat("txtVentas"); 
+    let precioProducto = recuperarFloat("txtPrecio");
 
     // Llamar a la función (Sin comillas y con variables correctas)
     let comisionTotal = calcularComision(numeroVentas, precioProducto);
