@@ -10,12 +10,30 @@ function calcularComision(numeroVentas, precioProducto) {
     return comision;
 }
 
+function validarVentas(){
+     let numeroVentasStr = recuperarTexto("txtVentas");
+     if(numeroVentasStr.length>5){
+        alert("Maximo 5 caracteres")
+        return false;
+    }else{
+        return true;
+    }
+ 
+    
+}
+
 function calcular() {
+    if (
+    !validarCampo('txtSueldoBase','errorSueldoBase') ||
+    !validarCampo('txtVentas','errorVentas') ||
+    !validarCampo('txtPrecio','errorPrecio')
+) {
+    return;
+}
     // Recuperar componentes
     //let componenteSueldoBase = document.getElementById("txtSueldoBase"); 
     //let componenteVentas = document.getElementById("txtVentas");
     //let componentePrecio = document.getElementById("txtPrecio");
-
     // Recuperar valores
     //ya no se utilizaron estas funciones que se estan comentado ya que se realizo otra funcion en utilitarios.
     //let sueldoBaseStr = componenteSueldoBase.value;
@@ -24,7 +42,7 @@ function calcular() {
     //let sueldoBaseStr=recuperartext("txtSueldoBase");
     //let numeroVentasStr=recuperartext("txtVentas");
     //let precioProductoStr=recuperartext("txtPrecio")
- 
+   
 
     // Convertir a números
     let sueldoBase = recuperarFloat("txtSueldoBase")
@@ -44,4 +62,31 @@ function calcular() {
     spSueldoBase.textContent = sueldoBase;
     spComision.textContent = comisionTotal;
     spTotal.textContent = total;
+}
+
+function validarCampo(idInput, idError) {
+    let valor = recuperarTexto(idInput);
+    let error = document.getElementById(idError);
+
+    // Vacío
+    if (valor === "") {
+        error.textContent = "Este campo es obligatorio";
+        return false;
+    }
+
+    // Solo números
+    if (!/^\d+$/.test(valor)) {
+        error.textContent = "Solo se permiten números";
+        return false;
+    }
+
+    // Máximo 5 dígitos
+    if (valor.length > 5) {
+        error.textContent = "Máximo 5 dígitos";
+        return false;
+    }
+
+    // Sin errores
+    error.textContent = "";
+    return true;
 }
